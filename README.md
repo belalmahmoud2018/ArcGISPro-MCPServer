@@ -2,11 +2,11 @@
 
 <p align="center">
   <a href="https://github.com/belalmahmoud2018/ArcGISPro-MCPServer/releases/latest">
-    <img src="https://img.shields.io/badge/%D8%AA%D8%AD%D9%85%D9%8A%D9%84%20%D8%A7%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-ArcGISProMCP--Setup.exe-0079c1?style=for-the-badge&logo=windows&logoColor=white" alt="تحميل البرنامج">
+    <img src="https://img.shields.io/badge/Download-ArcGISProMCP--Setup.exe-0079c1?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
   </a>
   <br>
   <a href="https://github.com/belalmahmoud2018/ArcGISPro-MCPServer/releases/latest">
-    <img src="https://img.shields.io/github/v/release/belalmahmoud2018/ArcGISPro-MCPServer?label=%D8%A2%D8%AE%D8%B1%20%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1" alt="آخر إصدار">
+    <img src="https://img.shields.io/github/v/release/belalmahmoud2018/ArcGISPro-MCPServer?label=Latest%20release" alt="Latest release">
   </a>
   <img src="https://img.shields.io/badge/ArcGIS%20Pro-3.0%20%E2%80%93%203.7-2c7ac9" alt="ArcGIS Pro 3.0 - 3.7">
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d6" alt="Windows 10 | 11">
