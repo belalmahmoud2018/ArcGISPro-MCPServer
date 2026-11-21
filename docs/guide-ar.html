@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>دليل المستخدم - ArcGIS Pro MCP Server</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  :root { --blue:#0079c1; --dark:#0b3a5b; --soft:#eef6fc; --line:#d5e4ef; --warn:#fff6e5; --warnb:#f0b54a; --ok:#e9f7ef; --okb:#3aa66a; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; color:#1f2a33; font-size: 10.8pt; line-height: 1.6; margin:0; background:#fff; }
+  h1, h2, h3 { color: var(--dark); line-height:1.35; }
+  h2 { font-size: 18pt; border-bottom: 3px solid var(--blue); padding-bottom: 4px; margin: 0 0 12px; counter-increment: sec; }
+  h2::before { content: counter(sec) ". "; color: var(--blue); }
+  h2.nonum { counter-increment: none; } h2.nonum::before { content: none; }
+  body { counter-reset: sec; }
+  h3 { font-size: 13pt; margin: 18px 0 6px; }
+  section { page-break-before: always; }
+  .cover { height: 255mm; display:flex; flex-direction:column; justify-content:center; text-align:center;
+           background: linear-gradient(160deg, #0b3a5b 0%, #0079c1 70%, #35a8e0 100%); color:#fff; border-radius: 6px; padding: 30mm 18mm; }
+  .cover h1 { color:#fff; font-size: 34pt; margin: 0 0 6mm; }
+  .cover .sub { font-size: 16pt; opacity:.95; }
+  .cover .en { direction:ltr; font-size: 13pt; opacity:.85; margin-top: 4mm; }
+  .cover .badges { margin-top: 14mm; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .cover .badges span { background: rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); padding: 4px 12px; border-radius: 20px; font-size: 10.5pt; }
+  .cover .ver { margin-top: 16mm; font-size: 11pt; opacity:.9; }
+  .steps { counter-reset: st; list-style: none; padding: 0; margin: 0; }
+  .steps > li { counter-increment: st; position: relative; padding: 8px 46px 8px 10px; margin: 8px 0; background: var(--soft); border-radius: 6px; border-right: 4px solid var(--blue); }
+  .steps > li::before { content: counter(st); position:absolute; right: 10px; top: 8px; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color:#fff; text-align:center; line-height:26px; font-weight:700; font-size: 11pt; }
+  .note { background: var(--warn); border-right: 4px solid var(--warnb); padding: 8px 12px; border-radius: 6px; margin: 10px 0; }
+  .tip { background: var(--ok); border-right: 4px solid var(--okb); padding: 8px 12px; border-radius: 6px; margin: 10px 0; }
+  code, .code { font-family: Consolas, "Courier New", monospace; direction: ltr; unicode-bidi: embed; background:#f3f5f7; border:1px solid #e1e6ea; border-radius:4px; padding: 0 4px; font-size: 10pt; }
+  pre { direction: ltr; text-align: left; background:#0f2433; color:#e6f1f8; border-radius:6px; padding: 10px 12px; font-family: Consolas, monospace; font-size: 9.5pt; white-space: pre-wrap; word-break: break-all; margin: 8px 0; }
+  table { width:100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 10.5pt; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th { background: var(--dark); color:#fff; padding: 6px 8px; text-align: right; }
+  td { border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8fbfd; }
+  .ltr { direction: ltr; unicode-bidi: embed; }
+  figure { margin: 10px 0 14px; text-align:center; page-break-inside: avoid; }
+  figure img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  figcaption { font-size: 9.5pt; color:#5a6b78; margin-top: 4px; }
+  .diagram { display:flex; align-items:stretch; justify-content:center; gap: 8px; direction: ltr; margin: 12px 0; flex-wrap: nowrap; }
+  .diagram .box { flex: 1; background: var(--soft); border: 2px solid var(--blue); border-radius: 8px; padding: 8px; text-align:center; font-size: 10pt; direction: rtl; }
+  .diagram .box b { display:block; color: var(--dark); font-size: 11pt; }
+  .diagram .arrow { align-self:center; color: var(--blue); font-size: 20pt; font-weight:700; }
+  .prompt { background:#fff; border:1px dashed var(--blue); border-radius:6px; padding: 6px 10px; margin: 6px 0; }
+  .prompt::before { content: "💬 "; }
+  .toc li { margin: 3px 0; }
+  .two { columns: 2; column-gap: 18px; }
+  .small { font-size: 9.5pt; color:#5a6b78; }
+</style>
+</head>
+<body>
+
+<!-- الغلاف -->
+<div class="cover">
+  <h1>دليل المستخدم</h1>
+  <div class="sub">خادم ArcGIS Pro MCP<br>تحكّم في ArcGIS Pro بالكامل من أي وكيل ذكاء اصطناعي</div>
+  <div class="en">ArcGIS Pro MCP Server — User Guide</div>
+  <div class="badges">
+    <span>ArcGIS Pro 3.0 ← 3.7</span><span>Claude</span><span>ChatGPT</span><span>Codex</span><span>Gemini</span>
+    <span>Antigravity</span><span>Cursor</span><span>DeepSeek</span><span>ملف EXE واحد</span>
+  </div>
+  <div class="ver">الإصدار 1.0.0</div>
+</div>
+
+<!-- المحتويات -->
+<section>
+  <h2 class="nonum">المحتويات</h2>
+  <ol class="toc">
+    <li>ما هو خادم ArcGIS Pro MCP؟</li>
+    <li>المتطلبات</li>
+    <li>التثبيت خطوة بخطوة</li>
+    <li>التأكد من عمل الإضافة داخل ArcGIS Pro</li>
+    <li>ربط وكلاء الذكاء الاصطناعي</li>
+    <li>ربط ChatGPT (وضع HTTP)</li>
+    <li>ربط DeepSeek وأي وكيل آخر</li>
+    <li>قائمة الأدوات المتاحة للوكيل</li>
+    <li>حل المشكلات الشائعة</li>
+    <li>الأمان والخصوصية</li>
+    <li>إلغاء التثبيت</li>
+  </ol>
+
+  <h2 style="margin-top:22px">ما هو خادم ArcGIS Pro MCP؟</h2>
+  <p>
+    <b>MCP</b> (Model Context Protocol) هو بروتوكول قياسي يسمح لوكلاء الذكاء الاصطناعي باستخدام البرامج الموجودة على جهازك.
+    هذا البرنامج يجعل أي وكيل ذكاء اصطناعي، مثل Claude أو ChatGPT أو Gemini أو Codex، قادراً على <b>التحكم في ArcGIS Pro مباشرة</b>:
+    فتح المشاريع، وإضافة البيانات، والتحليل المكاني، والترميز، والتسميات، والتعديل، وإنشاء الخرائط الإخراجية (Layouts) وتصديرها، وتشغيل أي أداة معالجة جغرافية، وتنفيذ أكواد ArcPy، بل والضغط على أي زر في واجهة البرنامج.
+  </p>
+  <p>كل ما عليك هو أن تكتب طلبك بلغتك العادية، مثلاً:</p>
+  <div class="prompt">أضف طبقة المحافظات، ولوّنها حسب عدد السكان، ثم أنشئ خريطة إخراجية فيها عنوان ومفتاح خريطة وصدّرها PDF.</div>
+
+  <h3>كيف يعمل؟</h3>
+  <div class="diagram">
+    <div class="box"><b>وكيل الذكاء الاصطناعي</b>Claude, ChatGPT, Gemini, Codex ...</div>
+    <div class="arrow">→</div>
+    <div class="box"><b>ArcGISProMCP.exe</b>خادم MCP على جهازك</div>
+    <div class="arrow">→</div>
+    <div class="box"><b>إضافة داخل ArcGIS Pro</b>تنفّذ الأوامر داخل البرنامج</div>
+  </div>
+  <p class="small">الاتصال بين الخادم وArcGIS Pro محلي بالكامل على جهازك (Named Pipe)، ولا يمر عبر الإنترنت.</p>
+</section>
+
+<section>
+  <h2>المتطلبات</h2>
+  <table>
+    <tr><th style="width:32%">العنصر</th><th>التفاصيل</th></tr>
+    <tr><td>نظام التشغيل</td><td>Windows 10 أو Windows 11 (64 بت)</td></tr>
+    <tr><td>ArcGIS Pro</td><td>أي إصدار من <b>3.0 إلى 3.7</b>، مع ترخيص فعّال</td></tr>
+    <tr><td>وكيل ذكاء اصطناعي</td><td>واحد على الأقل: Claude Desktop، Claude Code، ChatGPT، Codex، Gemini CLI، Antigravity، Cursor، Windsurf، VS Code، Cline، LM Studio ... إلخ</td></tr>
+    <tr><td>مكتبات أو أدوات إضافية</td><td><b>لا يلزم أي شيء.</b> لا Python ولا .NET ولا صلاحيات مسؤول (Administrator). الملف <span class="code">ArcGISProMCP-Setup.exe</span> يحتوي على كل شيء.</td></tr>
+  </table>
+
+</section>
+<section>
+  <h2>التثبيت خطوة بخطوة</h2>
+  <ol class="steps">
+    <li><b>أغلق ArcGIS Pro</b> إن كان مفتوحاً.</li>
+    <li>شغّل الملف <span class="code">ArcGISProMCP-Setup.exe</span> بالنقر المزدوج.
+      <div class="small">إذا ظهرت رسالة Windows SmartScreen فاضغط «More info» ثم «Run anyway».</div></li>
+    <li>ستظهر نافذة البرنامج، وفيها: إصدار ArcGIS Pro المكتشف على جهازك، وقائمة بوكلاء الذكاء الاصطناعي الموجودين عندك، وتكون محددة تلقائياً.</li>
+    <li>حدّد الوكلاء الذين تريد ربطهم، أو اضغط <b>Select all</b> لتحديدهم جميعاً.</li>
+    <li>اضغط الزر الأزرق <b>Install / Update تثبيت</b> وانتظر حتى يظهر في السجل السطر <span class="code">== Done ==</span>.</li>
+    <li><b>أعد تشغيل</b> برامج الذكاء الاصطناعي (مثل Claude Desktop وCursor) حتى تتعرّف على الخادم الجديد.</li>
+  </ol>
+  <figure>
+    <img src="images/setup.png" alt="نافذة التثبيت" style="max-height:92mm">
+    <figcaption>شكل 1: نافذة التثبيت والإدارة، وتظهر فيها حالة ArcGIS Pro والإضافة والوكلاء المكتشفين.</figcaption>
+  </figure>
+  <div class="tip">ما الذي يحدث أثناء التثبيت؟ يُنسخ البرنامج إلى <span class="code">%LOCALAPPDATA%\Programs\ArcGISProMCP</span>،
+    وتُثبَّت إضافة ArcGIS Pro في مجلد الإضافات الخاص بك، وتُضاف إعدادات الخادم إلى ملفات إعداد كل وكيل اخترته (مع حفظ نسخة احتياطية منها)،
+    ويُسجَّل البرنامج في قائمة «التطبيقات المثبتة» في Windows، ويُنشأ له اختصار في قائمة ابدأ.</div>
+</section>
+
+<section>
+  <h2>التأكد من عمل الإضافة داخل ArcGIS Pro</h2>
+  <ol class="steps">
+    <li>افتح ArcGIS Pro وافتح أي مشروع.</li>
+    <li>ستجد في الشريط العلوي تبويباً جديداً اسمه <b>AI / MCP</b>.</li>
+    <li>اضغط <b>MCP Status</b>، ويجب أن تظهر رسالة <b>MCP Bridge is RUNNING</b>.</li>
+    <li>يمكنك أيضاً أن تفتح نافذة البرنامج من قائمة ابدأ وتضغط <b>Test connection to Pro</b>.</li>
+  </ol>
+  <div class="note"><b>لم يظهر التبويب؟</b> من داخل ArcGIS Pro افتح: <b>Project ← Add-In Manager ← Options</b>،
+    واختر <b>Load all Add-Ins without restrictions</b>، ثم أعد تشغيل ArcGIS Pro.</div>
+
+  <h2 style="margin-top:22px">ربط وكلاء الذكاء الاصطناعي</h2>
+  <p>الوكلاء التالية يربطها المثبّت <b>تلقائياً</b>، وكل ما عليك هو إعادة تشغيل الوكيل بعد التثبيت:</p>
+  <table>
+    <tr><th style="width:34%">الوكيل</th><th>ملاحظات</th></tr>
+    <tr><td>Claude Desktop</td><td>بعد إعادة التشغيل يظهر <span class="code">arcgis-pro</span> ضمن أيقونة الأدوات (🔨) في خانة الكتابة.</td></tr>
+    <tr><td>Claude Code</td><td>يُضاف على مستوى المستخدم. اكتب <span class="code">/mcp</span> للتأكد من الاتصال.</td></tr>
+    <tr><td>OpenAI Codex (CLI / IDE / App)</td><td>يُضاف إلى <span class="code">~/.codex/config.toml</span>.</td></tr>
+    <tr><td>Gemini CLI</td><td>يُضاف إلى <span class="code">~/.gemini/settings.json</span>. اكتب <span class="code">/mcp</span> للتأكد.</td></tr>
+    <tr><td>Google Antigravity</td><td>يُضاف إلى <span class="code">mcp_config.json</span>. يظهر في قائمة MCP Servers.</td></tr>
+    <tr><td>Cursor / Windsurf / Kiro / Trae</td><td>يظهر في إعدادات MCP، وتأكد أن المؤشر بجوار الخادم أخضر.</td></tr>
+    <tr><td>VS Code (Copilot) / Cline / Roo Code</td><td>يظهر في قائمة MCP Servers داخل الإضافة.</td></tr>
+    <tr><td>Qwen Code / LM Studio / opencode / Amazon Q</td><td>يُضاف تلقائياً إذا كان الوكيل مثبتاً.</td></tr>
+  </table>
+  <div class="tip">في أول مرة سيطلب منك الوكيل الموافقة على استخدام أدوات <b>arcgis-pro</b>، فاضغط «Allow» أو «سماح».</div>
+</section>
+
+<section>
+  <h2>ربط ChatGPT (وضع HTTP)</h2>
+  <p>ChatGPT يعمل من خوادم OpenAI على الإنترنت، لذلك يحتاج إلى رابط <b>HTTPS</b> عام يصل إلى جهازك. نوفّر هذا الرابط بخطوتين:</p>
+  <ol class="steps">
+    <li>افتح نافذة البرنامج من قائمة ابدأ (<b>ArcGIS Pro MCP Server</b>)، واترك المنفذ <span class="code">3939</span>، واضغط <b>Start HTTP server</b>. سيظهر في السجل رابط يحتوي على رمز سري (Token). <b>اترك النافذة مفتوحة.</b></li>
+    <li>شغّل نفقاً (Tunnel) آمناً في نافذة أوامر، باستخدام أحد البرنامجين المجانيين:
+      <pre>cloudflared tunnel --url http://localhost:3939
+ngrok http 3939</pre>
+      ستحصل على رابط مثل <span class="code">https://xxxx.trycloudflare.com</span>.</li>
+    <li>في ChatGPT افتح: <b>Settings ← Apps &amp; Connectors ← Advanced ← Developer mode</b> وفعّله.</li>
+    <li>اضغط <b>Create</b> لإضافة Connector جديد، وضع الرابط بهذا الشكل:
+      <pre>https://xxxx.trycloudflare.com/mcp/الرمز-السري</pre>
+      واختر <b>Authentication: No authentication</b>، لأن الرمز السري موجود بالفعل داخل الرابط.</li>
+    <li>في المحادثة اختر الـ Connector من قائمة الأدوات وابدأ بكتابة طلباتك.</li>
+  </ol>
+  <div class="note"><b>تنبيه أمني:</b> أي شخص يعرف الرابط كاملاً مع الرمز يمكنه التحكم في ArcGIS Pro على جهازك. لا تنشر الرابط، وأوقف الخادم والنفق عندما تنتهي.</div>
+
+</section>
+<section>
+  <h2>ربط DeepSeek وأي وكيل آخر</h2>
+  <p>أي برنامج يدعم MCP يمكن ربطه، مثل Cherry Studio وChatbox وContinue وZed وGoose، أو أي برنامج يستخدم نماذج DeepSeek:</p>
+  <ol class="steps">
+    <li>افتح نافذة البرنامج واضغط <b>Copy JSON config</b>، وسيُنسخ الإعداد إلى الحافظة.</li>
+    <li>الصقه في إعدادات MCP داخل الوكيل. شكل الإعداد:
+<pre>{
+  "mcpServers": {
+    "arcgis-pro": {
+      "command": "C:\\Users\\USER\\AppData\\Local\\Programs\\ArcGISProMCP\\ArcGISProMCP.exe",
+      "args": ["--stdio"]
+    }
+  }
+}</pre></li>
+    <li>إذا كان الوكيل يطلب رابطاً بدلاً من أمر تشغيل، فاستخدم وضع HTTP: <span class="code">http://127.0.0.1:3939/mcp/الرمز</span>.</li>
+  </ol>
+  <div class="tip">لاستخدام <b>DeepSeek</b> مع أدوات كاملة يمكنك ربط نموذج DeepSeek بأحد الوكلاء المدعومين، مثل Cline أو Roo Code أو Cherry Studio أو LM Studio، ثم ربط هذا الوكيل بالخادم كما سبق.</div>
+</section>
+
+<section>
+  <h2>قائمة الأدوات المتاحة للوكيل</h2>
+  <p>الخادم يوفّر <b>50 أداة</b>. أهم أربع منها تعطي الوكيل تحكماً كاملاً في البرنامج:</p>
+  <table>
+    <tr><th style="width:34%">الأداة</th><th>الوظيفة</th></tr>
+    <tr><td class="ltr">run_geoprocessing</td><td>تشغيل <b>أي</b> أداة من أدوات المعالجة الجغرافية (أكثر من 1500 أداة): Analysis وData Management وSpatial Analyst وNetwork وغيرها.</td></tr>
+    <tr><td class="ltr">run_python</td><td>تنفيذ كود ArcPy <b>داخل</b> ArcGIS Pro على المشروع المفتوح، مع الاحتفاظ بالمتغيرات بين الأوامر.</td></tr>
+    <tr><td class="ltr">search_commands + execute_command</td><td>البحث عن أي زر في الشريط العلوي (أكثر من 6000 أمر) والضغط عليه.</td></tr>
+    <tr><td class="ltr">get_layer_cim / set_layer_cim</td><td>تحكم كامل في الترميز والتسميات والنوافذ المنبثقة (Pop-ups) لأي طبقة.</td></tr>
+  </table>
+  <h3>باقي الأدوات حسب الفئة</h3>
+  <table>
+    <tr><th style="width:24%">الفئة</th><th>الأدوات</th></tr>
+    <tr><td>الجلسة</td><td class="ltr">pro_status, launch_arcgis_pro, select_pro_instance, get_application_info</td></tr>
+    <tr><td>المشروع</td><td class="ltr">open_project, new_project, save_project, list_project_items, browse_folder, add_project_item</td></tr>
+    <tr><td>الخرائط والتنقل</td><td class="ltr">list_maps, create_map, open_map, map_properties, zoom_to, bookmarks, capture_map_view, undo_redo</td></tr>
+    <tr><td>الطبقات</td><td class="ltr">list_layers, add_layer, remove_layer, set_layer_properties, describe_layer, open_attribute_table</td></tr>
+    <tr><td>البيانات والتحديد</td><td class="ltr">query_features, summarize_field, select_features, select_by_location, clear_selection, get_selection</td></tr>
+    <tr><td>التعديل</td><td class="ltr">add_features, update_features, delete_features, save_edits</td></tr>
+    <tr><td>الترميز والتسميات</td><td class="ltr">set_symbology, set_labels</td></tr>
+    <tr><td>الخرائط الإخراجية</td><td class="ltr">list_layouts, create_layout, open_layout, add_layout_text, add_layout_picture, export_layout</td></tr>
+    <tr><td>المعالجة الجغرافية</td><td class="ltr">list_geoprocessing_tools, get_geoprocessing_tool_info</td></tr>
+  </table>
+  <div class="tip">كل التعديلات على البيانات يمكن التراجع عنها (Undo) إلى أن تُحفظ. اطلب من الوكيل «تراجع عن آخر خطوة» إذا لم تعجبك النتيجة.</div>
+</section>
+
+<section>
+  <h2>حل المشكلات الشائعة</h2>
+  <table>
+    <tr><th style="width:38%">المشكلة</th><th>الحل</th></tr>
+    <tr><td>الوكيل لا يرى أدوات arcgis-pro</td><td>أعد تشغيل الوكيل بالكامل (أغلقه من شريط المهام أيضاً). وتأكد في نافذة البرنامج أن الوكيل مكتوب بجواره <b>configured ✔</b>.</td></tr>
+    <tr><td>رسالة «ArcGIS Pro is not running»</td><td>اطلب من الوكيل تشغيله («شغّل ArcGIS Pro») أو افتحه يدوياً.</td></tr>
+    <tr><td>رسالة «the MCP Bridge add-in is not loaded»</td><td>من داخل Pro: <b>Project ← Add-In Manager ← Options ← Load all Add-Ins without restrictions</b>، ثم أعد تشغيل Pro. وإن لم ينجح ذلك، أعد التثبيت.</td></tr>
+    <tr><td>الأمر يستغرق وقتاً طويلاً</td><td>أدوات التحليل الكبيرة قد تستغرق دقائق، والخادم يرسل إشارات تقدم للوكيل. إن انتهت المهلة فقد تكون العملية ما زالت تعمل داخل Pro.</td></tr>
+    <tr><td>Pro يعرض نافذة حوار (حفظ، تأكيد ...)</td><td>أغلق النافذة يدوياً، لأن الوكيل لا يستطيع الضغط على نوافذ الحوار.</td></tr>
+    <tr><td>أكثر من نسخة Pro مفتوحة</td><td>اطلب من الوكيل: «اعرض نسخ ArcGIS Pro المفتوحة واختر النسخة رقم ...».</td></tr>
+    <tr><td>ChatGPT لا يتصل</td><td>تأكد أن خادم HTTP والنفق يعملان، وأن الرابط ينتهي بـ <span class="code">/mcp/الرمز</span>، وأن الرابط يبدأ بـ https.</td></tr>
+  </table>
+  <p>سجلات التشغيل موجودة في: <span class="code">%LOCALAPPDATA%\ArcGISProMCP\logs</span>، ويمكنك فتحها من زر <b>Open logs</b>.</p>
+
+  <h2 style="margin-top:22px">الأمان والخصوصية</h2>
+  <ul>
+    <li>كل الاتصالات تتم محلياً على جهازك، ولا تُرسل بياناتك إلى أي مكان إلا إلى وكيل الذكاء الاصطناعي الذي اخترته أنت.</li>
+    <li>وضع HTTP يعمل افتراضياً على <span class="code">127.0.0.1</span> فقط، وفتحه للشبكة يتطلب رمزاً سرياً.</li>
+    <li>الوكيل يستطيع تعديل البيانات وحذفها. راجع طلباتك، واحتفظ بنسخة احتياطية من بياناتك المهمة.</li>
+    <li>قبل أي تعديل على ملفات إعداد الوكلاء يحفظ المثبّت نسخة احتياطية منها باسم <span class="code">*.bak-arcgispro-mcp</span>.</li>
+  </ul>
+
+  <h2 style="margin-top:22px">إلغاء التثبيت</h2>
+  <p>اختر إحدى الطرق التالية:</p>
+  <ul>
+    <li>من <b>Settings ← Apps ← Installed apps</b> اختر <b>ArcGIS Pro MCP Server</b> ثم Uninstall.</li>
+    <li>أو افتح نافذة البرنامج واضغط <b>Uninstall إزالة</b>.</li>
+  </ul>
+  <p>تُزال الإضافة من ArcGIS Pro، وتُحذف إعدادات الخادم من كل الوكلاء، ويُحذف البرنامج نفسه.</p>
+  <p class="small" style="margin-top:10mm; text-align:center">ArcGIS هي علامة تجارية مسجلة لشركة Esri. هذا البرنامج أداة مستقلة وليس منتجاً رسمياً من Esri.</p>
+</section>
+
+</body>
+</html>

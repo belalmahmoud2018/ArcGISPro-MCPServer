@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    ArcGISProMCP.exe : one self-contained executable that is at the same time
+      * the installer / manager GUI   (double-click, no arguments)
+      * the MCP server over stdio     (ArcGISProMCP.exe /stdio)  -> Claude Desktop/Code, Codex, Gemini, Cursor ...
+      * the MCP server over HTTP      (ArcGISProMCP.exe /http)   -> ChatGPT connectors, remote agents
+    The ArcGIS Pro add-in (.esriAddinX) is embedded as a resource and deployed by the installer.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ArcGISProMcp.Server</RootNamespace>
+    <AssemblyName>ArcGISProMCP</AssemblyName>
+    <Version>1.0.0</Version>
+    <Product>ArcGIS Pro MCP Server</Product>
+    <Company>ArcGIS Pro MCP</Company>
+    <Description>MCP server that lets AI agents control ArcGIS Pro 3.0 - 3.7</Description>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <DebugType>embedded</DebugType>
+    <NoWarn>$(NoWarn);CA1416;WFAC010</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\ArcGISProMcp.AddIn\bin\Release\ArcGISProMcpBridge.esriAddinX"
+                      LogicalName="ArcGISProMcpBridge.esriAddinX"
+                      Condition="Exists('..\ArcGISProMcp.AddIn\bin\Release\ArcGISProMcpBridge.esriAddinX')" />
+  </ItemGroup>
+
+</Project>
