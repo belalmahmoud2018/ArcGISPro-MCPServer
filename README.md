@@ -21,7 +21,7 @@ Claude Desktop و Claude Code و ChatGPT و Codex و Gemini CLI و Antigravity �
 
 ---
 
-## التثبيت (للمستخدم النهائي)
+### التثبيت (للمستخدم النهائي)
 
 1. اقفل ArcGIS Pro.
 2. شغّل `ArcGISProMCP-Setup.exe` بدبل كليك.
