@@ -96,3 +96,4 @@ powershell -ExecutionPolicy Bypass -File build.ps1
 * `src\ArcGISProMcp.Server` خادم MCP والمثبّت وإعداد الوكلاء.
 
 السجلات موجودة في `%LOCALAPPDATA%\ArcGISProMCP\logs`.
+
